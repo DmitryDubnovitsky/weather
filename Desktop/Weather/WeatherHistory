@@ -1,0 +1,22 @@
+public class WeatherHistory {
+    public static HttpResponse getHistory(){
+        String endPointURL = 'http://api.openweathermap.org/data/2.5/history/city?id=625144&type=hour';
+        Httprequest request = new HttpRequest();
+        Http http = new Http();
+        
+          request.setMethod('GET');
+         // request.setHeader('Content-Type', 'application/json');
+          request.setEndpoint(endPointURL);
+         HttpResponse response = http.send(request);
+          System.debug('response: '+response.getBody());
+        if (response.getStatusCode() == 200) {
+            System.debug('good'); 
+        }
+        else {
+            System.debug('bad'); 
+        }
+       
+        return response;
+}
+
+}

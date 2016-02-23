@@ -1,0 +1,13 @@
+@isTest
+global class WeatherHistoryTest implements HttpCalloutMock {
+  global HTTPResponse respond(HTTPRequest req) {
+      //WeatherHistory.getHistory('http://api.openweathermap.org/data/2.5/history/city?id=625144&type=hour');
+       System.assertEquals('http://api.openweathermap.org/data/2.5/history/city?id=625144&type=hour', req.getEndpoint());
+        System.assertEquals('GET', req.getMethod());
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+       
+      return res;
+  }
+
+}
